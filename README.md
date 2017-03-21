@@ -80,3 +80,16 @@ Create an `entry-form-component` and display it on the home page with the list o
 Upon submission of this form, use your `journal-entries` service to make a POST request to the API and create the new entry.
 
 Upon success of this submission, make sure the new journal entry is displayed on the home page.
+
+
+Backend: nodemon bin/www
+
+1. Setup model
+2. Setup Seed file
+3. Run the seed file once & check in db if its working
+4. Create routes
+  - creating the urls and specifying the method
+5. Create .env file
+  - install dotenv
+  - add it .gitignore
+6. Install cors (creates comm between localhost/3000 and localhost/4200)

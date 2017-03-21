@@ -7,7 +7,10 @@ const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 
-mongoose.connect('mongodb://localhost/journal-development');
+const dotenv = require('dotenv');
+dotenv.config();
+
+mongoose.connect(process.env.MONGODB_URI);
 
 const app = express();
 
@@ -26,6 +29,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
+
+const cors = require('cors');
+app.use(cors());
 
 const index = require('./routes/index');
 app.use('/', index);
